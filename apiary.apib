@@ -1,0 +1,714 @@
+FORMAT: 1A
+HOST: http://api-buslane.com/api
+
+# API BUSLANE
+
+## CRUD Walkthrough [/walkthrough]
+
+### Create Walkthrough [POST/walkthrough]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+            
+    + Body
+
+            {
+                
+                "title": "Easy to use",
+                "desc": "lorem ipsum dolor sit amet",
+                "src": "/Upload/image.jpg"
+                
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": 1,
+                "title": "Easy to use",
+                "desc": "lorem ipsum dolor sit amet",
+                "src": "/Upload/image.jpg"
+            }
+
+### List All Walkthrough [GET /walkthrough]
+
++ Request (application/json)
+
+    + Headers
+
+        
+
++ Response 200 (application/json)
+
+        
+    [
+        {
+            "id": 1,
+            "title": "Easy to use",
+            "desc": "lorem ipsum dolor sit amet",
+            "src": "/Upload/image.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Easy to use",
+            "desc": "lorem ipsum dolor sit amet",
+            "src": "/Upload/image.jpg"
+        }
+    ]
+        
+
+
+### List Detail Walkthrough [GET /walkthrough/{id}]
+
++ Request (application/json)
+
+    + Headers
+
+           
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "title": "Easy to use",
+            "desc": "lorem ipsum dolor sit amet",
+            "src": "/Upload/image.jpg",
+        }
+        
++ Response 409 (application/json)
+Jika ID tidak ada sebelumnya, maka tidak bisa get
+
+    + Body
+
+            {
+               "message": "Couldn't find walkthrough with 'id'=#"
+            }
+
+
+
+### Update Walkthrough [PUT /walkthrough/{id}]
+
++ Parameters
+
++ Request (application/json)
+    
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+    
+    + Body
+
+            {
+            "title": "Easy to use update"
+            }
+    
++ Response 200 (application/json)
+
+        {
+           "id": 1,
+            "title": "Easy to use update",
+            "desc": "lorem ipsum dolor sit amet",
+            "src": "/Upload/image.jpg"
+        }
+        
++ Response 422 (application/json)
+Jika field yang akan diedit kosong, maka akan muncul pesan dimana field tersebut
+ tidak boleh kosong
+ 
+ + Body
+
+            {
+                "status": "FAIL",
+                "message": "can't be blank"
+            }
+
+
+### Delete Walkthrough [DELETE /walkthrough/{id}]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+
++ Parameters
+
++ Response 200 (application/json)
+
+  + Body
+
+            {
+                "status": "OK",
+                "message": "Walkthrough has been deleted"
+            }
+          
+
+## CRUD Member Choose [/memberchoose]
+
+### Create Member Choose [POST/memberchoose]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+            
+    + Body
+
+            {
+                
+                "title": "$30.00 Family",
+                "value": "30",
+                "howToPay": "<h2 style='text-align: center;'><span style='color: #000000;'>Complete your Registration Payment:</span></h2><ul style='list-style-type: square;'><li style='text-align: left;'><span style='color: #000000;'>Make payment by transferring to BCA account number&nbsp;<strong>0092-3345-443&nbsp;</strong>under the&nbsp;<strong>Indonesian Tamil Sangam account name.</strong></span></li><li style='text-align: left;'><span style='color: #000000;'>Confirm your payment to the Indonesian Tamil Sangam admin via chat.</span></li><li style='text-align: left;'><span style='color: #000000;'>You can enter the application with an account that has been registered. While waiting for the payment&nbsp; to be confirmed by the Indonesian Tamil Sangam admin.</span></li></ul>"
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": 1,
+                "title": "$30.00 Family",
+                "value": "30",
+                "howToPay": "<h2 style='text-align: center;'><span style='color: #000000;'>Complete your Registration Payment:</span></h2><ul style='list-style-type: square;'><li style='text-align: left;'><span style='color: #000000;'>Make payment by transferring to BCA account number&nbsp;<strong>0092-3345-443&nbsp;</strong>under the&nbsp;<strong>Indonesian Tamil Sangam account name.</strong></span></li><li style='text-align: left;'><span style='color: #000000;'>Confirm your payment to the Indonesian Tamil Sangam admin via chat.</span></li><li style='text-align: left;'><span style='color: #000000;'>You can enter the application with an account that has been registered. While waiting for the payment&nbsp; to be confirmed by the Indonesian Tamil Sangam admin.</span></li></ul>"
+            }
+
+### List All Member Choose[GET /memberchoose]
+
++ Request (application/json)
+
+    + Headers
+
+        
+
++ Response 200 (application/json)
+
+        
+    [
+        {
+            "id": 1,
+            "title": "$30.00 Family",
+            "value": "30",
+            "howToPay": "<h2 style='text-align: center;'><span style='color: #000000;'>Complete your Registration Payment:</span></h2><ul style='list-style-type: square;'><li style='text-align: left;'><span style='color: #000000;'>Make payment by transferring to BCA account number&nbsp;<strong>0092-3345-443&nbsp;</strong>under the&nbsp;<strong>Indonesian Tamil Sangam account name.</strong></span></li><li style='text-align: left;'><span style='color: #000000;'>Confirm your payment to the Indonesian Tamil Sangam admin via chat.</span></li><li style='text-align: left;'><span style='color: #000000;'>You can enter the application with an account that has been registered. While waiting for the payment&nbsp; to be confirmed by the Indonesian Tamil Sangam admin.</span></li></ul>"
+        },
+        {
+            "id": 2,
+            "title": "$250.00 Life Member",
+            "value": "250",
+            "howToPay": "<h2 style='text-align: center;'><span style='color: #000000;'>Complete your Registration Payment:</span></h2><ul style='list-style-type: square;'><li style='text-align: left;'><span style='color: #000000;'>Make payment by transferring to BCA account number&nbsp;<strong>0092-3345-443&nbsp;</strong>under the&nbsp;<strong>Indonesian Tamil Sangam account name.</strong></span></li><li style='text-align: left;'><span style='color: #000000;'>Confirm your payment to the Indonesian Tamil Sangam admin via chat.</span></li><li style='text-align: left;'><span style='color: #000000;'>You can enter the application with an account that has been registered. While waiting for the payment&nbsp; to be confirmed by the Indonesian Tamil Sangam admin.</span></li></ul>"
+        },
+        {
+            "id": 3,
+            "title": "Free",
+            "value": "0",
+            "howToPay": "<h2 style='text-align: center;'><span style='color: #000000;'>Complete your Registration Payment:</span></h2><ul style='list-style-type: square;'><li style='text-align: left;'><span style='color: #000000;'>Make payment by transferring to BCA account number&nbsp;<strong>0092-3345-443&nbsp;</strong>under the&nbsp;<strong>Indonesian Tamil Sangam account name.</strong></span></li><li style='text-align: left;'><span style='color: #000000;'>Confirm your payment to the Indonesian Tamil Sangam admin via chat.</span></li><li style='text-align: left;'><span style='color: #000000;'>You can enter the application with an account that has been registered. While waiting for the payment&nbsp; to be confirmed by the Indonesian Tamil Sangam admin.</span></li></ul>"
+        }
+    ]
+        
+
+
+### List Detail Member Choose[GET /memberchoose/{id}]
+
++ Request (application/json)
+
+    + Headers
+
+           
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "title": "$30.00 Family",
+            "value": "30",
+            "howToPay": "<h2 style='text-align: center;'><span style='color: #000000;'>Complete your Registration Payment:</span></h2><ul style='list-style-type: square;'><li style='text-align: left;'><span style='color: #000000;'>Make payment by transferring to BCA account number&nbsp;<strong>0092-3345-443&nbsp;</strong>under the&nbsp;<strong>Indonesian Tamil Sangam account name.</strong></span></li><li style='text-align: left;'><span style='color: #000000;'>Confirm your payment to the Indonesian Tamil Sangam admin via chat.</span></li><li style='text-align: left;'><span style='color: #000000;'>You can enter the application with an account that has been registered. While waiting for the payment&nbsp; to be confirmed by the Indonesian Tamil Sangam admin.</span></li></ul>"
+        }
+        
++ Response 409 (application/json)
+Jika ID tidak ada sebelumnya, maka tidak bisa get
+
+    + Body
+
+            {
+               "message": "Couldn't find Member choose with 'id'=#"
+            }
+
+
+
+### Update Member Choose[PUT /memberchoose/{id}]
+
++ Parameters
+    + id (number) - ID of status must integer
+
++ Request (application/json)
+    
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+    
+    + Body
+
+            {
+            "title": "$30.00 Family Friend"
+            }
+    
++ Response 200 (application/json)
+
+        {
+           "id": 1,
+            "title": "$30.00 Family Friend",
+            "value": "30",
+            "howToPay": "<h2 style='text-align: center;'><span style='color: #000000;'>Complete your Registration Payment:</span></h2><ul style='list-style-type: square;'><li style='text-align: left;'><span style='color: #000000;'>Make payment by transferring to BCA account number&nbsp;<strong>0092-3345-443&nbsp;</strong>under the&nbsp;<strong>Indonesian Tamil Sangam account name.</strong></span></li><li style='text-align: left;'><span style='color: #000000;'>Confirm your payment to the Indonesian Tamil Sangam admin via chat.</span></li><li style='text-align: left;'><span style='color: #000000;'>You can enter the application with an account that has been registered. While waiting for the payment&nbsp; to be confirmed by the Indonesian Tamil Sangam admin.</span></li></ul>"
+        }
+        
++ Response 422 (application/json)
+Jika field yang akan diedit kosong, maka akan muncul pesan dimana field tersebut
+ tidak boleh kosong
+ 
+ + Body
+
+            {
+                "status": "FAIL",
+                "message": "can't be blank"
+            }
+
+
+### Delete Member Choose[DELETE /memberchoose/{id}]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+
++ Parameters
+    + id (number) - ID of status must integer
+
++ Response 200 (application/json)
+
+  + Body
+
+            {
+                "status": "OK",
+                "message": "member choose has been deleted"
+            }
+          
+
+
+## Signup [/signup]
+
+### Signup Member [POST]
+
++ Request (application/json)
+
+        {
+            
+            "fullName": "Farhad Tarokh",
+            "dateOfBirth": "1998-12-06",
+            "emailAddress": "farhad@gmail.com",
+            "mainPhoneNumber": "81234567890",
+            "phoneNumber": "",
+            "gender": "Male",
+            "spouseFullName": "Maia Tadic",
+            "spouseEmail": "maia@gmail.com",
+            "kids": [
+                {
+                    "kidFullName": "Aasiya Jayavant"
+                },
+                {
+                    "kidFullName": "Jarjit Sign"
+                }
+            ],
+            "password": "Farhad2020!",
+            "countryId": "12",
+            "city": "Jakarta",
+            "address": "Jl. Radio dalam No, 112 rt03/rw09",
+            "postCode": "40324",
+            "memberChooseId": "1"
+                
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "status": "OK",
+                "message": "Account created successfully, Please verify your account (Check your Email)"
+            }
+
+
++ Response 409 (application/json)
+Jika signup dengan email yang sama/yang sudah terdaftar sebelumnya, maka tidak bisa mendaftar sebagai user
+
+    + Body
+
+            {
+                "status": "FAIL",
+                "message": "has already been taken"
+            }
+
+## Login [/auth/login]
+
+### Login Member [POST]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                
+                "email": "farhad@gmail.com",
+                "password": "Farhad2020!"
+                    
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": "OK",
+                "auth_token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+            }
+        
++ Response 403 (application/json)
+Jika login dengan email dan password salah, 
+maka tidak bisa login
+
+    + Body
+
+            {
+                "status": "FAIL",
+                "message": "Invalid credentials"
+            }
+
+## CRUD Member [/members]
+
+### List All Member [GET /member]
+
++ Request (application/json)
+
+    + Headers
+
+
++ Response 200 (application/json)
+
+
+        [
+            {
+                "id": 1,
+                "fullName": "Farhad Tarokh",
+                "dateOfBirth": "1998-12-06",
+                "emailAddress": "farhad@gmail.com",
+                "mainPhoneNumber": "81234567890",
+                "phoneNumber": "",
+                "gender": "Male",
+                "spouseFullName": "Maia Tadic",
+                "spouseEmail": "maia@gmail.com",
+                "kids": [
+                    {
+                        "kidFullName": "Aasiya Jayavant"
+                    },
+                    {
+                        "kidFullName": "Jarjit Sign"
+                    }
+                ],
+                "password": "Farhad2020!",
+                "countryId": 12,
+                "city": "Jakarta",
+                "address": "Jl. Radio dalam No, 112 rt03/rw09",
+                "postCode": "40324",
+                "status": "TRUE",
+                "memberChooseId": 1
+            },
+            {
+                "id": 2,
+                "fullName": "Farhad Tarokh",
+                "dateOfBirth": "1998-12-06",
+                "emailAddress": "farhad@gmail.com",
+                "mainPhoneNumber": "81234567890",
+                "phoneNumber": "",
+                "gender": "Male",
+                "spouseFullName": "Maia Tadic",
+                "spouseEmail": "maia@gmail.com",
+                "kids": [
+                    {
+                        "kidFullName": "Aasiya Jayavant"
+                    }
+                ],
+                "password": "Farhad2020!",
+                "countryId": 12,
+                "city": "Jakarta",
+                "address": "Jl. Radio dalam No, 112 rt03/rw09",
+                "postCode": "40324",
+                "status": "TRUE",
+                "memberChooseId": 1
+            }
+        ]
+
+
+### List Detail Member [GET /profile]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "fullName": "Farhad Tarokh",
+            "dateOfBirth": "1998-12-06",
+            "emailAddress": "farhad@gmail.com",
+            "mainPhoneNumber": "81234567890",
+            "phoneNumber": "",
+            "gender": "Male",
+            "spouseFullName": "Maia Tadic",
+            "spouseEmail": "maia@gmail.com",
+            "kids": [
+                {
+                    "kidFullName": "Aasiya Jayavant"
+                },
+                {
+                    "kidFullName": "Jarjit Sign"
+                }
+            ],
+            "password": "Farhad2020!",
+            "countryId": 12,
+            "city": "Jakarta",
+            "address": "Jl. Radio dalam No, 112 rt03/rw09",
+            "postCode": "40324",
+            "status": "TRUE",
+            "memberChooseId": 1
+        }
+
+
+### Update User [PUT /profile/edit]
+
++ Parameters
+    + id (number) - ID of user must integer
+
++ Request (application/json)
+    
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+    
+    + Body
+
+            {
+            "fullName": "Raju Jadu",
+            "dateOfBirth": "1998-12-06",
+            "emailAddress": "farhad@gmail.com",
+            "mainPhoneNumber": "81234567890",
+            "phoneNumber": "",
+            "gender": "Male",
+            "spouseFullName": "Maia Tadic",
+            "spouseEmail": "maia@gmail.com",
+            "kids": [
+                {
+                    "kidFullName": "Aasiya Jayavant"
+                }
+            ],
+            "password": "Farhad2020!",
+            "countryId": 12,
+            "city": "Jakarta",
+            "address": "Jl. Radio dalam No, 112 rt03/rw09",
+            "postCode": "40324",
+            "status": "TRUE",
+            "memberChooseId": 1
+            }
+    
++ Response 200 (application/json)
+
+        {
+            "id": 2,
+            "fullName": "Raju Jadu",
+            "dateOfBirth": "1998-12-06",
+            "emailAddress": "farhad@gmail.com",
+            "mainPhoneNumber": "81234567890",
+            "phoneNumber": "",
+            "gender": "Male",
+            "spouseFullName": "Maia Tadic",
+            "spouseEmail": "maia@gmail.com",
+            "kids": [
+                {
+                    "kidFullName": "Aasiya Jayavant"
+                }
+            ],
+            "password": "Farhad2020!",
+            "countryId": 12,
+            "city": "Jakarta",
+            "address": "Jl. Radio dalam No, 112 rt03/rw09",
+            "postCode": "40324",
+            "status": "TRUE",
+            "memberChooseId": 1
+        }
+        
++ Response 422 (application/json)
+Jika field yang akan diedit kosong, maka akan muncul pesan dimana field tersebut
+ tidak boleh kosong
+ 
+ + Body
+
+            {
+                "status": "FAIL",
+                "message": "value"
+            }
+
+
+### Delete User [DELETE /member/{id}]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+
++ Parameters
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": "OK",
+                "result": "User has been deleted"
+                
+            }
+            
+            
+## CRUD Country [/country]
+
+### Create Country [POST/country]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+            
+    + Body
+
+            {
+                
+                "name": "Indonesia"
+                
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Indonesia"
+            }
+
+### List All Country [GET /country]
+
++ Request (application/json)
+
+    + Headers
+
+        
+
++ Response 200 (application/json)
+
+        
+    [
+        {
+            "id": 1,
+            "name": "Indonesia"
+        },
+        {
+            "id": 2,
+            "name": "India"
+        }
+    ]
+        
+
+
+### List Detail Country [GET /country/{id}]
+
++ Request (application/json)
+
+    + Headers
+
+           
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "Indonesia"
+        }
+        
++ Response 409 (application/json)
+Jika ID tidak ada sebelumnya, maka tidak bisa get
+
+    + Body
+
+            {
+               "message": "Couldn't find country with 'id'=#"
+            }
+
+
+
+### Update Country [PUT /country/{id}]
+
++ Parameters
+
++ Request (application/json)
+    
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+    
+    + Body
+
+            {
+            "name": "Singapure"
+            }
+    
++ Response 200 (application/json)
+
+        {
+           "id": 2,
+           "name": "Singapure"
+        }
+        
++ Response 422 (application/json)
+Jika field yang akan diedit kosong, maka akan muncul pesan dimana field tersebut
+ tidak boleh kosong
+ 
+ + Body
+
+            {
+                "status": "FAIL",
+                "message": "can't be blank"
+            }
+
+
+### Delete Country [DELETE /country/{id}]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1Mjc5Mjg4NDV9.9k1N9JM02mzHDb4nt1KpfJr0poSBCNPS2vr_fwa0Bro"
+
++ Parameters
+
++ Response 200 (application/json)
+
+  + Body
+
+            {
+                "status": "OK",
+                "message": "Country has been deleted"
+            }
